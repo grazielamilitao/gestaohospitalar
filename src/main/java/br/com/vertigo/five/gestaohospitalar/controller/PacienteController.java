@@ -60,7 +60,7 @@ public class PacienteController {
     public ResponseEntity<Paciente> updatePaciente(@PathVariable(value = "id") Long pacienteId,
         @Validated @RequestBody Paciente paciente) throws ResourceNotFoundException {
 		Paciente p = pacienteRepository.findById(pacienteId)
-				.orElseThrow(() -> new ResourceNotFoundException("Paciente not found for this id :: " + pacienteId));
+				.orElseThrow(() -> new ResourceNotFoundException("Paciente not found for this id: " + pacienteId));
 
 		p.setNome(paciente.getNome());
 		p.setCPF(paciente.getCPF());
@@ -71,10 +71,10 @@ public class PacienteController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long pacienteId)
+    public Map<String, Boolean> deletePaciente(@PathVariable(value = "id") Long pacienteId)
     throws ResourceNotFoundException{
         Paciente paciente = pacienteRepository.findById(pacienteId)
-            .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + pacienteId));
+            .orElseThrow(() -> new ResourceNotFoundException("Paciente not found for this id: " + pacienteId));
 
         pacienteRepository.delete(paciente);
         Map < String, Boolean > response = new HashMap<>();
