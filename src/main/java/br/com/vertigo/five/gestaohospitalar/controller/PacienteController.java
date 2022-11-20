@@ -30,7 +30,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.vertigo.five.gestaohospitalar.api.ResourceNotFoundException;
 import br.com.vertigo.five.gestaohospitalar.model.Paciente;
 import br.com.vertigo.five.gestaohospitalar.repository.PacienteRepository;
-import br.com.vertigo.five.gestaohospitalar.service.PacienteService;
 
 @RestController
 @RequestMapping("/paciente")

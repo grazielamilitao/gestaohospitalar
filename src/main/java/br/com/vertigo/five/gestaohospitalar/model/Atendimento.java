@@ -1,6 +1,5 @@
 package br.com.vertigo.five.gestaohospitalar.model;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,12 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Atendimento {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	private LocalDateTime dataAtendimento = LocalDateTime.now();
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date dataAtendimento = new Date();
 	
 	@ManyToOne
 	private Medico medico;
@@ -26,7 +28,7 @@ public class Atendimento {
 	
 	private boolean status; //ativo ou inativo
 
-	public LocalDateTime getDataAtendimento() {
+	public Date getDataAtendimento() {
 		return dataAtendimento;
 	}
 
@@ -54,7 +56,7 @@ public class Atendimento {
 		this.observacoes = observacoes;
 	}
 
-	public boolean isStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 

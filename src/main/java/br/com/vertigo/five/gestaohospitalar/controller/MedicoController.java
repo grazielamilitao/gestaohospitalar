@@ -40,12 +40,12 @@ public class MedicoController {
 	}
 	
 	@PostMapping("/cadastrar")
-	public Medico createPaciente(@RequestBody Medico medico) {
+	public Medico createMedico(@RequestBody Medico medico) {
 		return medicoRepository.save(medico);
 	}
 	
 	@PutMapping("/update/{id}")
-    public ResponseEntity<Medico> updatePaciente(@PathVariable(value = "id") Long medicoId,
+    public ResponseEntity<Medico> updateMedico(@PathVariable(value = "id") Long medicoId,
         @Validated @RequestBody Medico medico) throws ResourceNotFoundException {
 		Medico m = medicoRepository.findById(medicoId)
 				.orElseThrow(() -> new ResourceNotFoundException("Medico not found for this id: " + medicoId));
