@@ -38,7 +38,7 @@ public class AtendimentoController {
 		
 	}
 	
-	@GetMapping(path = {"/{inicio}/{fim}"})
+	/*@GetMapping(path = {"/{inicio}/{fim}"})
 	public ResponseEntity<Atendimento> findByPeriodo(@PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date inicio, Date fim) {
 		List<Atendimento> atends = atendimentoRepository.findAll();
 		List<Atendimento> atendsPeriodo = null;
@@ -53,9 +53,8 @@ public class AtendimentoController {
 		}
 		
 		return (ResponseEntity<Atendimento>) atendsPeriodo;
-	}
+	}*/
 	
-	@Transactional
 	@PostMapping("/cadastrar")
 	public Atendimento createAtendimento(@RequestBody Atendimento atendimento) {
 		return atendimentoRepository.save(atendimento);
