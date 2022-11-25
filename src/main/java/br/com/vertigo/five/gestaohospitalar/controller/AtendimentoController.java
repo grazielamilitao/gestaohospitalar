@@ -1,5 +1,6 @@
 package br.com.vertigo.five.gestaohospitalar.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -14,8 +15,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.vertigo.five.gestaohospitalar.api.ResourceNotFoundException;
 import br.com.vertigo.five.gestaohospitalar.model.Atendimento;
+import br.com.vertigo.five.gestaohospitalar.model.Medico;
+import br.com.vertigo.five.gestaohospitalar.model.Paciente;
+import br.com.vertigo.five.gestaohospitalar.relatorio.Periodo;
 import br.com.vertigo.five.gestaohospitalar.repository.AtendimentoRepository;
 
 @RestController
@@ -35,25 +41,37 @@ public class AtendimentoController {
 		return atendimentoRepository.findById(id)
 		           .map(record -> ResponseEntity.ok().body(record))
 		           .orElse(ResponseEntity.notFound().build());
-		
 	}
 	
-	/*@GetMapping(path = {"/{inicio}/{fim}"})
-	public ResponseEntity<Atendimento> findByPeriodo(@PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date inicio, Date fim) {
+	@RequestMapping(path = "/relatorio/periodo", method = RequestMethod.GET)
+	public List<Atendimento> findPeriodo(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.ms") Date dateInicio, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.ms") Date dateFim){
+		List<Atendimento> atendPeriodo = new ArrayList<Atendimento>();
 		List<Atendimento> atends = atendimentoRepository.findAll();
-		List<Atendimento> atendsPeriodo = null;
+	
+		for(Atendimento atendimento : atends) {
+			if(atendimento.getDataAtendimento().equals(dateInicio) || 
+					atendimento.getDataAtendimento().equals(dateFim) ||
+					(atendimento.getDataAtendimento().after(dateInicio) && atendimento.getDataAtendimento().before(dateFim) )) {
+				atendPeriodo.add(atendimento);
+			}
+		}
+		return atendPeriodo;
+	}
+	
+	@RequestMapping(path = "/relatorio/pacientespormedico", method = RequestMethod.GET)
+	public List<Paciente> findPeriodo(@RequestParam String crmMedico){
+		List<Paciente> pacientesMedico = new ArrayList<Paciente>();
+		List<Atendimento> atends = atendimentoRepository.findAll();
 		
 		for(Atendimento atendimento : atends) {
-			if((inicio.after(atendimento.getDataAtendimento()) && fim.before(atendimento.getDataAtendimento())) 
-					|| inicio.equals(atendimento.getDataAtendimento())
-					|| fim.equals(atendimento.getDataAtendimento()) ) {
-				
-				atendsPeriodo.add(atendimento);
+			System.out.println("a"+atendimento.getMedico().getCRM());
+			if(atendimento.getMedico().getCRM().equals(crmMedico)) {
+				pacientesMedico.add(atendimento.getPaciente());
 			}
 		}
 		
-		return (ResponseEntity<Atendimento>) atendsPeriodo;
-	}*/
+		return pacientesMedico;
+	}
 	
 	@PostMapping("/cadastrar")
 	public Atendimento createAtendimento(@RequestBody Atendimento atendimento) {

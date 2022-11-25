@@ -79,4 +79,10 @@ public class Paciente {
 	public String toString(){
 		return ""+getNome()+" "+getCPF()+" "+getDataNasc()+" "+getSexo();
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
+
 }

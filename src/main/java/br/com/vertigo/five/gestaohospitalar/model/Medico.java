@@ -74,4 +74,9 @@ public class Medico {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
 }

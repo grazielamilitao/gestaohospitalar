@@ -20,10 +20,10 @@ public class Atendimento {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
-	@JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss.ms")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.ms")
 	private Date dataAtendimento = new Date();
-
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Medico medico;
 
@@ -77,5 +77,9 @@ public class Atendimento {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-
+	
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
 }
