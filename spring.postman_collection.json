@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "8b69ff62-e030-4d9c-b660-121435ea4f4f",
+		"name": "spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22597233"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9001/paciente/cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"id\": 4,\n\"cpf\":\"00000000111\",\n\"dataNasc\": 21102000,\n\"nome\":\"Any\",\n\"sexo\":\"F\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/paciente/cadastrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"paciente",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/atendimento/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/paciente/update/3",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"nome\": \"Graziela\",\n        \"dataNasc\": \"2000-10-21T05:51:42.000+00:00\",\n        \"sexo\": \"F\",\n        \"cpf\": \"00011100000\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/paciente/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"paciente",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/paciente/delete/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/paciente/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"paciente",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/medico/cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/medico/cadastrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"medico",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/medico/cadastrar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"id\": 4,\n\"cpf\":\"00000000111\",\n\"crm\": 102154,\n\"dataNasc\": 21102000,\n\"nome\":\"Any\",\n\"sexo\":\"F\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/medico/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"medico",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/medico/update/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"id\": 4,\n\"cpf\":\"00000000111\",\n\"crm\": 102154,\n\"dataNasc\": \"1998-12-28T07:51:42.000+00:00\",\n\"nome\":\"Any\",\n\"sexo\":\"F\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/medico/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"medico",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/medico/delete/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/medico/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"medico",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/atendimento/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"observacoes\": \"paciente com sintomas gripais\",\n\"status\": true,\n\"paciente\":  {\n        \"id\": 1,\n        \"nome\": \"Graziela\",\n        \"dataNasc\": \"2000-10-21T05:51:42.000+00:00\",\n        \"sexo\": \"F\",\n        \"cpf\": \"00011100000\"\n    },\n\"medico\": {\n    \"id\": 1,\n    \"nome\": \"Any\",\n    \"dataNasc\": \"1998-12-28T07:51:42.000+00:00\",\n    \"sexo\": \"F\",\n    \"cpf\": \"00000000111\",\n    \"crm\": \"102154\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/atendimento/cadastrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/atendimento/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/delete/5",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/atendimento/delete/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						"delete",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/update/6",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"observacoes\": \"paciente com sintomas gripais\",\n\"status\": true,\n\"paciente\":  {\n        \"id\": 3,\n        \"nome\": \"Camile\",\n        \"dataNasc\": \"2000-11-18T05:51:42.000+00:00\",\n        \"sexo\": \"F\",\n        \"cpf\": \"00000000110\"\n    },\n\"medico\": {\n    \"id\": 1,\n    \"nome\": \"Any\",\n    \"dataNasc\": \"1998-12-28T07:51:42.000+00:00\",\n    \"sexo\": \"F\",\n    \"cpf\": \"00000000111\",\n    \"crm\": \"102154\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/atendimento/update/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						"update",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/relatorio/periodo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/atendimento/relatorio/periodo?dateInicio=2022-11-20 18:00:00.000&dateFim=2022-11-21 18:00:00.000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						"relatorio",
+						"periodo"
+					],
+					"query": [
+						{
+							"key": "dateInicio",
+							"value": "2022-11-20 18:00:00.000"
+						},
+						{
+							"key": "dateFim",
+							"value": "2022-11-21 18:00:00.000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/relatorio/pacientespormedico",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/atendimento/relatorio/pacientespormedico?crmMedico=102154",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						"relatorio",
+						"pacientespormedico"
+					],
+					"query": [
+						{
+							"key": "crmMedico",
+							"value": "102154"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/relatorio/medicos/periodo?dateInicio=2022-11-19 06:00:00.000&dateFim=2022-11-20 18:00:00.000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/atendimento/relatorio/medicos/periodo?dateInicio=2022-11-21 15:00:00.000&dateFim=2022-11-22 18:00:00.000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						"relatorio",
+						"medicos",
+						"periodo"
+					],
+					"query": [
+						{
+							"key": "dateInicio",
+							"value": "2022-11-21 15:00:00.000"
+						},
+						{
+							"key": "dateFim",
+							"value": "2022-11-22 18:00:00.000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/atendimento/relatorio/medicosporpaciente?cpfPaciente=00000000110",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/atendimento/relatorio/medicosporpaciente?cpfPaciente=00000000110",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"atendimento",
+						"relatorio",
+						"medicosporpaciente"
+					],
+					"query": [
+						{
+							"key": "cpfPaciente",
+							"value": "00000000110"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
