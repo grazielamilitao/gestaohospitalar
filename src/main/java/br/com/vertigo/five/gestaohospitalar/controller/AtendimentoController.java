@@ -70,7 +70,7 @@ public class AtendimentoController {
     public Map<String, Boolean> deleteAtendimento(@PathVariable(value = "id") Long atendId)
     throws ResourceNotFoundException{
     	Atendimento atend = atendimentoRepository.findById(atendId)
-            .orElseThrow(() -> new ResourceNotFoundException("Atendimento not found for this id :: " + atendId));
+            .orElseThrow(() -> new ResourceNotFoundException("Atendimento id: " +atendId+ " não encontrado."));
 
     	atendimentoRepository.delete(atend);
         Map < String, Boolean > response = new HashMap<>();
