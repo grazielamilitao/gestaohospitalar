@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"id\": 4,\n\"cpf\":\"00000000111\",\n\"dataNasc\": 21102000,\n\"nome\":\"Any\",\n\"sexo\":\"F\"\n}",
+					"raw": "{\n\"cpf\":\"0510000111\",\n\"dataNasc\": \"1999-11-01T05:51:42.000+00:00\",\n\"nome\":\"Natasha\",\n\"sexo\":\"F\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,14 +41,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9001/atendimento/",
+					"raw": "http://localhost:9001/paciente/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "9001",
 					"path": [
-						"atendimento",
+						"paciente",
 						""
 					]
 				}
@@ -91,7 +91,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9001/paciente/delete/2",
+					"raw": "http://localhost:9001/paciente/delete/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -100,7 +100,7 @@
 					"path": [
 						"paciente",
 						"delete",
-						"2"
+						"4"
 					]
 				}
 			},
@@ -111,6 +111,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"cpf\":\"04521700111\",\n\"crm\": 102154,\n\"dataNasc\": \"1997-01-27T07:51:42.000+00:00\",\n\"nome\":\"Alissa\",\n\"sexo\":\"F\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:9001/medico/cadastrar",
 					"protocol": "http",
@@ -128,21 +137,29 @@
 		},
 		{
 			"name": "http://localhost:9001/medico/cadastrar",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"id\": 4,\n\"cpf\":\"00000000111\",\n\"crm\": 102154,\n\"dataNasc\": 21102000,\n\"nome\":\"Any\",\n\"sexo\":\"F\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
+				"url": {
+					"raw": "http://localhost:9001/medico/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"medico",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/medico/1",
+			"request": {
+				"method": "GET",
+				"header": [],
 				"url": {
 					"raw": "http://localhost:9001/medico/1",
 					"protocol": "http",
@@ -248,7 +265,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"observacoes\": \"paciente com sintomas gripais\",\n\"status\": true,\n\"paciente\":  {\n        \"id\": 1,\n        \"nome\": \"Graziela\",\n        \"dataNasc\": \"2000-10-21T05:51:42.000+00:00\",\n        \"sexo\": \"F\",\n        \"cpf\": \"00011100000\"\n    },\n\"medico\": {\n    \"id\": 1,\n    \"nome\": \"Any\",\n    \"dataNasc\": \"1998-12-28T07:51:42.000+00:00\",\n    \"sexo\": \"F\",\n    \"cpf\": \"00000000111\",\n    \"crm\": \"102154\"\n}\n}",
+					"raw": "{\n\"observacoes\": \"paciente com sintomas gripais\",\n\"status\": true,\n\"paciente\":  {\n        \"id\": 2,\n        \"nome\": \"Graziela\",\n        \"dataNasc\": \"2000-10-21T05:51:42.000+00:00\",\n        \"sexo\": \"F\",\n        \"cpf\": \"00011100000\"\n    },\n\"medico\": {\n    \"id\": 1,\n     \"nome\": \"Alissa\",\n        \"dataNasc\": \"1997-01-27T07:51:42.000+00:00\",\n        \"sexo\": \"F\",\n        \"crm\": \"102154\",\n        \"cpf\": \"04521700111\"\n}\n}",
 					"options": {
 						"raw": {
 							"language": "json"

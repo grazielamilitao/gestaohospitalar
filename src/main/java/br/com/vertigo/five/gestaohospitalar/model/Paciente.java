@@ -85,4 +85,8 @@ public class Paciente {
 		return super.equals(obj);
 	}
 
+	public char[] isEnabled() {
+		return null;
+	}
+
 }

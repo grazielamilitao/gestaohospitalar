@@ -1,8 +1,11 @@
 package br.com.vertigo.five.gestaohospitalar.controller;
 
 
+import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -11,11 +14,14 @@ import java.util.Map;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -33,9 +39,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.lowagie.text.DocumentException;
+
 import br.com.vertigo.five.gestaohospitalar.api.ResourceNotFoundException;
 import br.com.vertigo.five.gestaohospitalar.model.Atendimento;
 import br.com.vertigo.five.gestaohospitalar.model.Paciente;
+import br.com.vertigo.five.gestaohospitalar.pdf.PacientePDF;
 import br.com.vertigo.five.gestaohospitalar.repository.PacienteRepository;
 
 @RestController
@@ -120,4 +129,34 @@ public class PacienteController {
 			return "Paciente não encontrado.";
 		}
 	}
+    
+    @RequestMapping(value="/getpdf", method=RequestMethod.GET)
+    public ResponseEntity<List<Paciente>> getPDF() {
+        List<Paciente> p = new ArrayList<Paciente>();
+        p = pacienteRepository.findAll();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+
+        ResponseEntity<List<Paciente>> response = new ResponseEntity<>(p, headers, HttpStatus.OK);
+        return response;
+    }
+    
+    @GetMapping("/export/pdf")
+    public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
+        response.setContentType("application/pdf");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+         
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=users_" + currentDateTime + ".pdf";
+        response.setHeader(headerKey, headerValue);
+         
+        List<Paciente> listPacientes = findAll();
+         
+        PacientePDF exporter = new PacientePDF(listPacientes);
+        exporter.export(response);
+         
+    }
+
 }
